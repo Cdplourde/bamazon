@@ -122,6 +122,7 @@ function addInv() {
                 if (err) throw err;
                 console.log("Quantity successfully updated.");
                 connection.create.end();
+                promptManager();
             });
         });
     });
@@ -168,11 +169,11 @@ function addNewProduct() {
     }])
     .then(function(res) {
         connectToDB();
-        console.log("INSERT INTO products(product_name, department_name, price, stock_quantity) VALUES ('" + res.product_name + "','" + res.department_name + "'," + res.price + "," + res.stock_quantity + ")")
         connection.create.query("INSERT INTO products(product_name, department_name, price, stock_quantity) VALUES ('" + res.product_name + "','" + res.department_name + "'," + res.price + "," + res.stock_quantity + ")", function(err, response) {
             if (err) throw err;
             console.log("Item successfully added to the database");
             connection.create.end();
+            promptManager();
         });
     });
 }
