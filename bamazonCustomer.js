@@ -23,7 +23,7 @@ function NewConnection(host, user, password, database) {
 
 function connectToDB() {
     //create new connection and connect to it
-    connection = new NewConnection("localhost", "root", "Pass4Class", "bamazon");
+    connection = new NewConnection("localhost", "root", "", "bamazon");
     connection.create.connect();
 }
 
